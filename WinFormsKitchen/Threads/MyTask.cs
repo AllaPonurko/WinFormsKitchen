@@ -12,7 +12,7 @@ namespace WinFormsKitchen.Threads
         public Action Frying=>new Action(MethodFrying);
         public Action Boiling=>new Action(MethodBoiling);
         public Action MakingToast=>new Action(MethodMakingToast);
-        public Task Cooking;
+        //public Task Cooking;
         public void MethodFrying()
         {
             MessageBox.Show("Используй сковородку");

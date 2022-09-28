@@ -97,7 +97,7 @@ namespace WinFormsKitchen
             this.lstResult.ItemHeight = 15;
             this.lstResult.Location = new System.Drawing.Point(15, 247);
             this.lstResult.Name = "lstResult";
-            this.lstResult.Size = new System.Drawing.Size(120, 94);
+            this.lstResult.Size = new System.Drawing.Size(299, 94);
             this.lstResult.TabIndex = 8;
             // 
             // label4

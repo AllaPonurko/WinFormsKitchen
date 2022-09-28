@@ -8,8 +8,6 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using WinFormsKitchen.Kitchen;
-using WinFormsKitchen.Menu;
 using WinFormsKitchen.Threads;
 
 namespace WinFormsKitchen
@@ -18,31 +16,62 @@ namespace WinFormsKitchen
     {
         public Form1() => InitializeComponent();
         public MyTask myTask = new MyTask();
-        public List<Tableware> tablewares = new List<Tableware>();
-        public List<ElementMenu> elementMenus = new List<ElementMenu>();
-        private void btnSnacks_Click(object sender, EventArgs e)
+        
+       async private void btnSnacks_Click(object sender, EventArgs e)
         {
-            tablewares.Add (new Kettle());
-            tablewares.Add(new Pan());
-            tablewares.Add(new Toaster());
-            elementMenus.Add(new Bacon());
-            elementMenus.Add(new Berries());
-            elementMenus.Add(new Coffee());
-            elementMenus.Add(new Eggs());
-            elementMenus.Add(new Tea());
-            elementMenus.Add(new Toast("Тост с сыром",10));
-            elementMenus.Add(new Toast("Тост с мясом", 15));
+            
             if (chblstSnacks.SelectedItem ==null)
             {
                 MessageBox.Show("Сделайте свой выбор");
             }
             if(chblstSnacks.SelectedItem.ToString()== "Бекон")
             {
-                //myTask.Cooking = new Task(myTask.Frying);
-                Task.Run(myTask.Frying);
-                Thread.Sleep(3000);
+                lstResult.Items.Clear();
+                lstResult.Items.Add("Время приготовления 20 мин.");
+                await Task.Run(myTask.Frying);
+                Thread.Sleep(5000);
+                lstResult.Items.Add("Бекон готов!");
             }
-
+            if (chblstSnacks.SelectedItem.ToString() == "Яичница")
+            {
+                lstResult.Items.Clear();
+                lstResult.Items.Add("Время приготовления 10 мин.");
+                await Task.Run(myTask.Frying);
+                Thread.Sleep(5000);
+                lstResult.Items.Add("Яичница готова!");
+            }
+            if (chblstSnacks.SelectedItem.ToString() == "Тост с сыром")
+            {
+                lstResult.Items.Clear();
+                lstResult.Items.Add("Время приготовления 15 мин.");
+                await Task.Run(myTask.MakingToast);
+                Thread.Sleep(5000);
+                lstResult.Items.Add("Тост с сыром готов!");
+            }
+            if (chblstSnacks.SelectedItem.ToString() == "Тост с мясом")
+            {
+                lstResult.Items.Clear();
+                lstResult.Items.Add("Время приготовления 10 мин.");
+                await Task.Run(myTask.MakingToast);
+                Thread.Sleep(5000);
+                lstResult.Items.Add("Тост с мясом готов!");
+            }
+            if (chblstDrinks.SelectedItem.ToString() == "Чай")
+            {
+                //lstResult.Items.Clear();
+                lstResult.Items.Add("Время приготовления 5 мин.");
+                await Task.Run(myTask.Boiling);
+                Thread.Sleep(5000);
+                lstResult.Items.Add("Чай готов!");
+            }
+            if (chblstDrinks.SelectedItem.ToString() == "Кофе")
+            {
+                //lstResult.Items.Clear();
+                lstResult.Items.Add("Время приготовления 5 мин.");
+                await Task.Run(myTask.Boiling);
+                Thread.Sleep(5000);
+                lstResult.Items.Add("Кофе готов!");
+            }
         }
     }
         
