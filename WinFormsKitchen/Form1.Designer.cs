@@ -33,10 +33,7 @@ namespace WinFormsKitchen
             this.chblstSnacks = new System.Windows.Forms.CheckedListBox();
             this.label2 = new System.Windows.Forms.Label();
             this.chblstDrinks = new System.Windows.Forms.CheckedListBox();
-            this.btnSnacks = new System.Windows.Forms.Button();
-            this.btnDrinks = new System.Windows.Forms.Button();
-            this.label3 = new System.Windows.Forms.Label();
-            this.chblTable = new System.Windows.Forms.CheckedListBox();
+            this.btnCooking = new System.Windows.Forms.Button();
             this.lstResult = new System.Windows.Forms.ListBox();
             this.label4 = new System.Windows.Forms.Label();
             this.SuspendLayout();
@@ -84,44 +81,15 @@ namespace WinFormsKitchen
             this.chblstDrinks.Size = new System.Drawing.Size(120, 94);
             this.chblstDrinks.TabIndex = 3;
             // 
-            // btnSnacks
+            // btnCooking
             // 
-            this.btnSnacks.Location = new System.Drawing.Point(15, 170);
-            this.btnSnacks.Name = "btnSnacks";
-            this.btnSnacks.Size = new System.Drawing.Size(108, 23);
-            this.btnSnacks.TabIndex = 4;
-            this.btnSnacks.Text = "Приготовить";
-            this.btnSnacks.UseVisualStyleBackColor = true;
-            // 
-            // btnDrinks
-            // 
-            this.btnDrinks.Location = new System.Drawing.Point(194, 170);
-            this.btnDrinks.Name = "btnDrinks";
-            this.btnDrinks.Size = new System.Drawing.Size(95, 23);
-            this.btnDrinks.TabIndex = 5;
-            this.btnDrinks.Text = "Приготовить";
-            this.btnDrinks.UseVisualStyleBackColor = true;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(383, 24);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(159, 15);
-            this.label3.TabIndex = 6;
-            this.label3.Text = "Кухонные принадлежности";
-            // 
-            // chblTable
-            // 
-            this.chblTable.FormattingEnabled = true;
-            this.chblTable.Items.AddRange(new object[] {
-            "Сковорода",
-            "Тостер",
-            "Чайник"});
-            this.chblTable.Location = new System.Drawing.Point(383, 43);
-            this.chblTable.Name = "chblTable";
-            this.chblTable.Size = new System.Drawing.Size(120, 94);
-            this.chblTable.TabIndex = 7;
+            this.btnCooking.Location = new System.Drawing.Point(15, 170);
+            this.btnCooking.Name = "btnCooking";
+            this.btnCooking.Size = new System.Drawing.Size(108, 23);
+            this.btnCooking.TabIndex = 4;
+            this.btnCooking.Text = "Приготовить";
+            this.btnCooking.UseVisualStyleBackColor = true;
+            this.btnCooking.Click += new System.EventHandler(this.btnSnacks_Click);
             // 
             // lstResult
             // 
@@ -148,10 +116,7 @@ namespace WinFormsKitchen
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.lstResult);
-            this.Controls.Add(this.chblTable);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.btnDrinks);
-            this.Controls.Add(this.btnSnacks);
+            this.Controls.Add(this.btnCooking);
             this.Controls.Add(this.chblstDrinks);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.chblstSnacks);
@@ -169,10 +134,7 @@ namespace WinFormsKitchen
         private System.Windows.Forms.CheckedListBox chblstSnacks;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.CheckedListBox chblstDrinks;
-        private System.Windows.Forms.Button btnSnacks;
-        private System.Windows.Forms.Button btnDrinks;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.CheckedListBox chblTable;
+        private System.Windows.Forms.Button btnCooking;
         private System.Windows.Forms.ListBox lstResult;
         private System.Windows.Forms.Label label4;
     }
