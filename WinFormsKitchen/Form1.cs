@@ -19,59 +19,85 @@ namespace WinFormsKitchen
         
        async private void btnSnacks_Click(object sender, EventArgs e)
         {
-            
-            if (chblstSnacks.SelectedItem ==null)
+            try
             {
-                MessageBox.Show("Сделайте свой выбор");
+                if (chblstSnacks.SelectedItem == null && chblstDrinks.SelectedItem == null)
+                {
+                    MessageBox.Show("Сделайте свой выбор");
+                }
+
+
+                if (chblstDrinks.SelectedItem != null&&
+                    chblstDrinks.SelectedItem.ToString() == "Чай")
+            {
+                    lstResult.Items.Clear();
+                    lstResult.Items.Add("Время приготовления 5 мин.");
+                await Task.Run(myTask.Boiling);
+                Thread.Sleep(1000);
+                lstResult.Items.Add("Чай готов!");
             }
-            if(chblstSnacks.SelectedItem.ToString()== "Бекон")
+            if (chblstDrinks.SelectedItem != null && 
+                    chblstDrinks.SelectedItem.ToString() == "Кофе")
             {
-                lstResult.Items.Clear();
+                    lstResult.Items.Clear();
+                    lstResult.Items.Add("Время приготовления 5 мин.");
+                await Task.Run(myTask.Boiling);
+                Thread.Sleep(1000);
+                lstResult.Items.Add("Кофе готов!");
+            }
+            if (chblstSnacks.SelectedItem != null&&
+                    chblstSnacks.SelectedItem.ToString()== "Бекон")
+            {
+                //lstResult.Items.Clear();
                 lstResult.Items.Add("Время приготовления 20 мин.");
                 await Task.Run(myTask.Frying);
                 Thread.Sleep(5000);
                 lstResult.Items.Add("Бекон готов!");
             }
-            if (chblstSnacks.SelectedItem.ToString() == "Яичница")
+            if (chblstSnacks.SelectedItem != null && 
+                    chblstSnacks.SelectedItem.ToString() == "Яичница")
             {
-                lstResult.Items.Clear();
+                //lstResult.Items.Clear();
                 lstResult.Items.Add("Время приготовления 10 мин.");
                 await Task.Run(myTask.Frying);
                 Thread.Sleep(5000);
                 lstResult.Items.Add("Яичница готова!");
             }
-            if (chblstSnacks.SelectedItem.ToString() == "Тост с сыром")
+            if (chblstSnacks.SelectedItem != null && 
+                    chblstSnacks.SelectedItem.ToString() == "Тост с сыром")
             {
-                lstResult.Items.Clear();
+                //lstResult.Items.Clear();
                 lstResult.Items.Add("Время приготовления 15 мин.");
                 await Task.Run(myTask.MakingToast);
                 Thread.Sleep(5000);
                 lstResult.Items.Add("Тост с сыром готов!");
             }
-            if (chblstSnacks.SelectedItem.ToString() == "Тост с мясом")
+            if (chblstSnacks.SelectedItem != null && 
+                    chblstSnacks.SelectedItem.ToString() == "Тост с мясом")
             {
-                lstResult.Items.Clear();
+                //lstResult.Items.Clear();
                 lstResult.Items.Add("Время приготовления 10 мин.");
                 await Task.Run(myTask.MakingToast);
                 Thread.Sleep(5000);
                 lstResult.Items.Add("Тост с мясом готов!");
             }
-            if (chblstDrinks.SelectedItem.ToString() == "Чай")
+            if (chblstSnacks.SelectedItem != null && 
+                    chblstSnacks.SelectedItem.ToString() == "Ягоды")
             {
                 //lstResult.Items.Clear();
-                lstResult.Items.Add("Время приготовления 5 мин.");
-                await Task.Run(myTask.Boiling);
-                Thread.Sleep(5000);
-                lstResult.Items.Add("Чай готов!");
+                await Task.Run(myTask.GetBerries);
+                Thread.Sleep(500);
+                lstResult.Items.Add("Ягоды готовы!");
             }
-            if (chblstDrinks.SelectedItem.ToString() == "Кофе")
+
+            } 
+            catch(Exception ex)
             {
-                //lstResult.Items.Clear();
-                lstResult.Items.Add("Время приготовления 5 мин.");
-                await Task.Run(myTask.Boiling);
-                Thread.Sleep(5000);
-                lstResult.Items.Add("Кофе готов!");
+                MessageBox.Show(ex.Message);
             }
+            
+
+
         }
     }
         

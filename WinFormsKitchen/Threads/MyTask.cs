@@ -12,6 +12,7 @@ namespace WinFormsKitchen.Threads
         public Action Frying=>new Action(MethodFrying);
         public Action Boiling=>new Action(MethodBoiling);
         public Action MakingToast=>new Action(MethodMakingToast);
+        public Action GetBerries => new Action(MethodGetBerries);
         //public Task Cooking;
         public void MethodFrying()
         {
@@ -24,6 +25,10 @@ namespace WinFormsKitchen.Threads
         public void MethodMakingToast()
         {
             MessageBox.Show("Используй тостер");
+        }
+        public void MethodGetBerries()
+        {
+            MessageBox.Show("Ягоды не требуют приготовления");
         }
     }
 }
